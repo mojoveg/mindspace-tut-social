@@ -28,7 +28,7 @@
 						<a href="#">DisLike</a> 
 						@if(Auth::user() == $post->user)
 							|
-							<a href="#">Edit</a> |
+							<a href="#" class="edit">Edit</a> |
 							<a href="{{ route('post.delete', ['post_id' => $post->id]) }}">Delete</a>
 						@endif
 					</div>
@@ -42,7 +42,7 @@
 	    <div class="modal-content">
 	      <div class="modal-header">
 	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	        <h4 class="modal-title">Modal title</h4>
+	        <h4 class="modal-title">Edit Post</h4>
 	      </div>
 	      <div class="modal-body">
 	        <p>One fine body&hellip;</p>

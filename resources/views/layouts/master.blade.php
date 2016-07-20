@@ -12,18 +12,14 @@
     		@yield('content')
     	</div>
 
-        <script
-              src="https://code.jquery.com/jquery-1.12.4.min.js"
-              integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
-              crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
 
-        <script
-              src="https://code.jquery.com/jquery-migrate-1.4.1.min.js"
-              integrity="sha256-SOuLUArmo4YXtXONKz+uxIGSKneCJG4x0nVcA0pFzV0="
-              crossorigin="anonymous"></script>      
+        <script src="https://code.jquery.com/jquery-migrate-1.4.1.min.js" integrity="sha256-SOuLUArmo4YXtXONKz+uxIGSKneCJG4x0nVcA0pFzV0=" crossorigin="anonymous"></script>      
 
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
-        <script src="{{ URL::to('src/js/app.js') }}"</script>
+       <script src="{{ URL::to('src/js/app.js') }}"</script>
+        <!-- <script src="{{ HTML::script('src/js/app.js') }}"></script> -->
+        <!-- <script type="text/javascript" src="/src/js/app.js"></script> -->
     </body>
 </html>
