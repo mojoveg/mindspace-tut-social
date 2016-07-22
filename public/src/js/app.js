@@ -1,15 +1,31 @@
-// $('.edit').click(function(){
-// // $('.post').find(.interaction).find('a').eq(2).on('click', function{
+var postId = 0;
+var postBodyElement = null;
 
-//    // $('.post').find('.interaction').find('edit').on('click', function (event) {
-// // $('.post').find('.interaction').find('edit').on('click', function (event) {
-// 	console.log('It works');
+// $('.post').find('.interaction').find('a').eq(2).on('click', function() {
 
-// 	// event.preventDefault();
+$('.post').find('.interaction').find('.edit').on('click', function (event) {
+	// console.log('It works');
 
-// 	// var postBody = event.target.parentNode.parentNode.childNodes[1].textContent;
-// 	// console.log(postBody)
-// 	$('#edit-modal').modal();
-// });
+	event.preventDefault();
 
-$('.edit').click(function(){ $('#edit-modal').modal('show'); });﻿
+    postBodyElement = event.target.parentNode.parentNode.childNodes[1];
+	var postBody = event.target.parentNode.parentNode.childNodes[1].textContent;
+	// console.log(postBody);
+    postId = event.target.parentNode.parentNode.dataset['postid'];
+    $('#post-body').val(postBody);
+	$('#edit-modal').modal();
+});
+
+// $('.edit').click(function(){ $('#edit-modal').modal('show'); });﻿
+
+$('#modal-save').on('click', function () {
+    $.ajax({
+            method: 'POST',
+            url: url,
+            data: {body: $('#post-body').val(), postId: postId, _token: token}
+        })
+        .done(function (msg) {
+            $(postBodyElement).text(msg['new_body']);
+            $('#edit-modal').modal('hide');
+        });
+});

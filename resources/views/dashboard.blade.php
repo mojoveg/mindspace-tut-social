@@ -18,7 +18,7 @@
 		<div class="ool-md-6 col-md-offset-3">
 			<header><h3>What other people say...</h3></header>
 			@foreach($posts as $post)
-				<article class="post">
+				<article class="post" data-postid="{{ $post->id }}">
 				<p>{{ $post->body }}</p>
 					<div class="info">
 						Posted by {{ $post->user->first_name }} on {{$post->created_at}}
@@ -45,13 +45,23 @@
 	        <h4 class="modal-title">Edit Post</h4>
 	      </div>
 	      <div class="modal-body">
-	        <p>One fine body&hellip;</p>
+	        <form>
+	        	<div class="form-group">
+	        		<label for="post-body">Edit the Post</label>
+	        		<textarea class="form-control" name="post-body" id="post-body" rows="5"></textarea>
+	        	</div>
+	        </form>
 	      </div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-	        <button type="button" class="btn btn-primary">Save changes</button>
+	        <button type="button" class="btn btn-primary" id="modal-save">Save changes</button>
 	      </div>
 	    </div><!-- /.modal-content -->
 	  </div><!-- /.modal-dialog -->
 	</div><!-- /.modal -->
+
+    <script>
+        var token = '{{ Session::token() }}';
+        var url = '{{ route('edit') }}';
+    </script>
 @endsection
